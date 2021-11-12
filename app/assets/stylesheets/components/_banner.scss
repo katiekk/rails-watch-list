@@ -3,7 +3,7 @@
   background-position: center;
   background-color: transparent;
   height: 80vh;
-  padding: 200px 0;
+  padding: 240px 0;
   text-align: right;
   h1 {
     margin: 0;
@@ -27,6 +27,22 @@
   height: 50vh;
   padding: 150px 0;
   text-align: right;
+  h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 48px;
+    font-weight: bold;
+  }
+}
+
+.new-banner {
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  height: 50vh;
+  padding: 200px 0;
+  text-align: center;
   h1 {
     margin: 0;
     color: white;

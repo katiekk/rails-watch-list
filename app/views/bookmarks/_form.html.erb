@@ -1,5 +1,5 @@
-<%= simple_form_for [@list, @bookmark] do |f| %>
+<%= simple_form_for [@list, @bookmark], html: { class: "w-100"} do |f| %>
   <%= f.association :movie, input_html: { class: 'select2' }  %>
   <%= f.input :comment %>
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
