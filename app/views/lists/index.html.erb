@@ -1,8 +1,27 @@
-<h1>Lists</h1>
 
-<% @lists.each do |list| %>
-  <%= link_to list.name, list_path(list) %>
-<% end %>
+<% background_url = "https://images.unsplash.com/photo-1478720568477-152d9b164e26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2luZW1hfHx8fHx8MTYzNjcwOTI4Ng&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= background_url %>);">
+  <div class="container">
+    <h1>Create your own movie list!</h1>
+    <p>Save all your favourite movies in a few clicks.</p>
+  </div>
+</div>
 
-<hr>
-<%= link_to "Add new list", new_list_path %>
+<div class="container py-5">
+  <h1>Check out your lists</h1>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <i class="fas fa-film"></i> <%= list.name%>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= link_to new_list_path do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3))">
+        <i class="fas fa-plus"></i>
+      </div>
+    <% end %>
+  </div>
+</div>

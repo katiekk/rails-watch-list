@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://image.flaticon.com/icons/png/512/1101/1101761.png" />
-</a>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+  <%= link_to lists_path, class: "nav-link navbar-brand" do %>
+    <img src="https://image.flaticon.com/icons/png/512/1101/1101761.png" /> Movie List
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,10 +9,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "My List", lists_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Add List", new_list_path, class: "btn btn-primary" %>
+        <%= link_to "Add List", new_list_path, class: "btn btn-success" %>
       </li>
     </ul>
   </div>

@@ -1,0 +1,121 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+a{
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card-movie {
+  position: relative;
+  height: 360px ;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  &:hover .card-body {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: webkit-transform 0.4s;
+            transition: -webkit-transform 0.4s;
+            transition: transform 0.4s;
+            transition: -webkit-transform 0.4s;
+  }
+  img {
+    height: 360px ;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.card-body {
+    background-color: white;
+    flex-direction: column;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition: -webkit-transform 0.4s;
+            transition: -webkit-transform 0.4s;
+  .card-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .card-overview  {
+    color: gray;
+    font-size: 12px;
+    flex-grow: 1;
+  }
+  .card-rating {
+    color: #333333;
+    font-size: 14px;
+  }
+  .card-rating i {
+    color: rgb(255, 210, 113);
+  }
+  .card-comment {
+    font-size: 14px;
+    margin:0;
+  }
+}

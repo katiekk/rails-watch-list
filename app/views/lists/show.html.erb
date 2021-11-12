@@ -1,11 +1,47 @@
-<h1><%= @list.name %></h1>
+<% background_url = "https://images.unsplash.com/photo-1478720568477-152d9b164e26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2luZW1hfHx8fHx8MTYzNjcwOTI4Ng&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600" %>
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= background_url %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
 
-<% @list.bookmarks.each do |bookmark| %>
-<p><%= bookmark.comment %></p>
-<p><%= bookmark.movie.title %></p><%= link_to "Delete", bookmark_path(@list), method: :delete, data: {confirm: "Are you sure?" } %>
-<p><%= bookmark.movie.overview %></p>
-<p><%= bookmark.movie.poster_url %></p>
-<p><%= bookmark.movie.rating %></p>
-<% end %>
-<hr>
-<%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-9">
+      <div class="cards">
+        <% @list.bookmarks.each do |bookmark| %>
+          <div class="card-movie">
+            <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="bookmark.movie.title">
+            <div class="card-body">
+              <div class="card-group">
+                <h4 class="card-title"><%= bookmark.movie.title %></h4>
+                <p class="card-rating"><%= bookmark.movie.rating %><i class="fas fa-star"></i></p>
+              </div>
+              <p class="card-overview"><%= bookmark.movie.overview %></p>
+              <div class="card-group">
+                <p class="card-comment"><em><i class="fas fa-quote-left"></i> <%= bookmark.comment %></em></p>
+                <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="card-movie card-add p-3">
+          <h2>Add movie</h2>
+          <%= render "bookmarks/form", { list: @list, bookmark: @bookmark } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <% @list.reviews.each do |review| %>
+        <p><%= review.comment %>, <%= '⭐️' * review.rating %>
+      <% end %>
+      <hr>
+      <h2>Add review</h2>
+      <%= render "reviews/form", { list: @list, review: @review } %>
+    </div>
+  </div>
+
+
+</div>
